@@ -38,4 +38,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: run unit tests
-        run: ./backend/manage.py test polls/
+        run: python ./backend/manage.py test polls/
