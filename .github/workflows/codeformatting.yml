@@ -17,7 +17,9 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  python-unit-tests:
+  format:
+    name: Check format
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -26,15 +28,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Setup Python
-        uses: actions/setup-python@v2.1.4
-        with:
-          # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-          python-version: 3.9.1
-
-      - name: pip install
-        run: python -m pip install -r requirements.txt
-
       # Runs a single command using the runners shell
-      - name: run unit tests
-        run: python backend/manage.py test backend/
+      - name: Black Code Formatter
+        uses: lgeiger/black-action@v1.0.1
