@@ -26,14 +26,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: actions/
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2.1.4
+        with:
+          # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+          python-version: 3.9.1
 
       # Runs a single command using the runners shell
       - name: run unit tests
-        run: python3 ./backend/manage.py test
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        run: python ./backend/manage.py test
