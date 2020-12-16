@@ -6,7 +6,7 @@ authors = ["orvis evans <b.orvis@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8.5"
 Django = "\b3.1.4"
 
 [tool.poetry.dev-dependencies]
