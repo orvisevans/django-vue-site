@@ -17,8 +17,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "unit-test"
-  unit-test:
+  python-unit-tests:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -39,3 +38,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: run unit tests
         run: python backend/manage.py test backend/
+
+  format:
+    name: Check format
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Black Code Formatter
+        uses: lgeiger/black-action@v1.0.1
