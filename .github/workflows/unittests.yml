@@ -38,6 +38,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: run unit tests
         run: python backend/manage.py test backend/
+        env:
+          DJANGO_SECRET_KEY: testingSecret
 
   format:
     name: Check format
