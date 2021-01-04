@@ -15,5 +15,6 @@ class QuestionSerializer(FlexFieldsModelSerializer):
         fields = [
             "question_text",
             "pub_date",
+            "id",
         ]
         expandable_fields = {"choices": (ChoiceSerializer, {"many": True})}

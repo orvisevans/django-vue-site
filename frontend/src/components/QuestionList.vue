@@ -18,8 +18,7 @@ export default {
   async created() {
     if (this.questions.length !== 0) return;
     try {
-      const url =
-        "http://localhost:8000/polls/api/questions?expand=choices&format=json";
+      const url = "http://localhost:8000/polls/api/questions?format=json";
       const response = await axios.get(url);
       const { data } = response;
       this.questions = data;
