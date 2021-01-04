@@ -18,6 +18,11 @@ class Question(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_description = "Published recently?"
 
+    @property
+    def choices(self):
+        result = self.choice_set.all()
+        return result
+
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
