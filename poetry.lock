@@ -116,6 +116,14 @@ python-versions = ">=3.5"
 django = ">=2.2"
 
 [[package]]
+name = "drf-flex-fields"
+version = "0.8.8"
+description = "Flexible, dynamic fields and nested resources for Django REST Framework serializers."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "isort"
 version = "5.6.4"
 description = "A Python utility / library to sort Python imports."
@@ -242,7 +250,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.5"
-content-hash = "bd0892bac303b8a66f3095511b79817ccd8272d8659f9f9722ca051cdc00b278"
+content-hash = "2a1f09fa0ac9637a7d5f5ee7844e331308f785d3cf8ba36f8f89f01d295c98c7"
 
 [metadata.files]
 appdirs = [
@@ -282,6 +290,9 @@ django-environ = [
 ]
 djangorestframework = [
     {file = "djangorestframework-3.12.2-py3-none-any.whl", hash = "sha256:0209bafcb7b5010fdfec784034f059d512256424de2a0f084cb82b096d6dd6a7"},
+]
+drf-flex-fields = [
+    {file = "drf-flex-fields-0.8.8.tar.gz", hash = "sha256:f4c8d2b768c607ed62efc45369ae5a5e8f632e45d09083fd66ef8537aaa24189"},
 ]
 isort = [
     {file = "isort-5.6.4-py3-none-any.whl", hash = "sha256:dcab1d98b469a12a1a624ead220584391648790275560e1a43e54c5dceae65e7"},
