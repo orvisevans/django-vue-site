@@ -11,6 +11,7 @@ Django = "\b3.1.4"
 django-environ = "^0.4.5"
 djangorestframework = "^3.12.2"
 django-cors-headers = "^3.6.0"
+drf-flex-fields = "^0.8.8"
 
 [tool.poetry.dev-dependencies]
 black = "^20.8b1"
