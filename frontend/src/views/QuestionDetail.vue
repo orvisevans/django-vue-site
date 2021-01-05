@@ -4,7 +4,9 @@
     <p class="date">{{ question.pub_date }}</p>
     <ul>
       <li v-for="choice in question.choices" :key="choice.id">
-        {{ choice.choice_text }}
+        <button @click="voteFor(choice)">
+          {{ choice.choice_text }}
+        </button>
       </li>
     </ul>
   </div>
@@ -24,10 +26,8 @@ export default {
     };
   },
   created() {
-    const id = this.$route.params.id;
-    const url = `http://localhost:8000/polls/api/questions/${id}?expand=choices`;
     axios
-      .get(url)
+      .get(this.questionApiUrl)
       .then((response) => (this.question = response.data))
       .catch((err) => console.error(err));
   },
@@ -35,6 +35,30 @@ export default {
     questionLoaded() {
       console.log(this.question);
       return Boolean(this.question);
+    },
+    questionApiUrl() {
+      const id = this.$route.params.id;
+      return `http://localhost:8000/polls/api/questions/${id}/?expand=choices`;
+    },
+  },
+  methods: {
+    getChoiceUrl(id) {
+      return `http://localhost:8000/polls/api/choices/${id}/`;
+    },
+    goToResults() {
+      const routePath = `${this.$route.path}/results`;
+      this.$router.push(routePath);
+    },
+    voteFor(choice) {
+      const url = this.getChoiceUrl(choice.id);
+      const newChoice = {
+        ...choice,
+        votes: choice.votes + 1,
+      };
+      axios
+        .put(url, newChoice)
+        .then(this.goToResults)
+        .catch((err) => console.error(err));
     },
   },
 };

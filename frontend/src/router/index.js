@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import QuestionDetail from "../views/QuestionDetail.vue";
+import QuestionResults from "../views/QuestionResults.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,10 @@ const routes = [
   {
     path: "/question/:id",
     component: QuestionDetail,
+  },
+  {
+    path: "/question/:id/results",
+    component: QuestionResults,
   },
 ];
 
